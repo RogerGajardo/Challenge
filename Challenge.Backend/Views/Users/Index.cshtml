@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Challenge.Common.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FatherLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MotherLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Points)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FatherLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotherLastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Points)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdUser }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdUser }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdUser })
+        </td>
+    </tr>
+}
+
+</table>
